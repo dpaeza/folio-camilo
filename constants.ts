@@ -7,7 +7,7 @@
 export const METADATA = {
   title: "Camilo Lyons",
   description:
-    "I'm a Full Stack Developer who connects frontend and backend seamlessly. I focus on building efficient, user-centered apps with modern web technologies.",
+    "I'm a Data Scientist who bridges data and decision-making seamlessly. I focus on developing ETL processes, building predictive models, and delivering data-driven solutions through modern analytics, machine learning, and data visualization tools.",
   siteUrl: "https://danielapaez.dev/",
 };
 
@@ -35,17 +35,17 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-  "I develop things",
-  "I develop modern frontend apps",
-  "I engineer dynamic user experiences",
-  "I create and optimize full stack solutions",
+  "I develop data analytics solutions",
+  "I design and optimize ETL pipelines",
+  "I create data-driven insights and visualizations",
+  "I build machine learning models",
 ];
 
-export const EMAIL = "danipaez1098@gmail.com";
+export const EMAIL = "camilo.lyv@gmail.com";
 
 export const SOCIAL_LINKS = {
-  linkedin: "https://www.linkedin.com/in/daniela-paez-delahoz/",
-  github: "https://github.com/dpaeza"
+  linkedin: "https://www.linkedin.com/in/camilo-lyons-valero/",
+  github: "https://github.com/clyonsv"
 };
 
 export interface IProject {
@@ -134,79 +134,55 @@ export const PROJECTS: IProject[] = [
 ];
 
 export const SKILLS = {
-  frontend: [
+  languajes: [
     {
-      name: "React JS",
-      icon: "react",
+      name: "Python",
+      icon: "python",
     },
     {
-      name: "Next JS",
-      icon: "next",
+      name: "SQL Server",
+      icon: "sql",
     },
     {
-      name: "Svelte",
-      icon: "svelte",
+      name: "PostgreSQL",
+      icon: "postgresql",
     },
     {
-      name: "Typescript",
-      icon: "typescript",
+      name: "Pandas",
+      icon: "Pandas",
     },
     {
-      name: "Javascript",
-      icon: "javascript",
+      name: "NumPy",
+      icon: "numpy",
     },
     {
-      name: "HTML 5",
-      icon: "html",
+      name: "Seaborn",
+      icon: "seaborn",
     },
     {
-      name: "CSS 3",
-      icon: "css",
+      name: "Anaconda",
+      icon: "anaconda",
     },
     {
-      name: "SASS",
-      icon: "sass",
+      name: "Jupyter Notebook",
+      icon: "jupyter",
     },
     {
-      name: "Redux",
-      icon: "redux",
+      name: "Google Colab",
+      icon: "colaboratory",
     },
     {
-      name: "Material UI",
-      icon: "material-ui",
-    },
-  ],
-  backend: [
-    {
-      name: ".NET",
-      icon: "net",
+      name: "Visual Studio Code",
+      icon: "vs-code",
     },
     {
-      name: "Firebase",
-      icon: "firebase",
+      name: "Qlik View",
+      icon: "qlik",
     },
     {
-      name: "MySQL",
-      icon: "mysql",
+      name: "Qlik Sense",
+      icon: "qlik-sense"
     },
-    {
-      name: "Azure Table Storage",
-      icon: "storage-table",
-    },
-    {
-      name: "Azure Blob Storage",
-      icon: "storage-blob",
-    },
-    {
-      name: "Redis",
-      icon: "redis",
-    },
-    {
-      name: "Azure OpenAI",
-      icon: "azure-openAI",
-    }
-  ],
-  other: [
     {
       name: "Git",
       icon: "git",
@@ -216,12 +192,48 @@ export const SKILLS = {
       icon: "github",
     },
     {
-      name: "Figma",
-      icon: "figma",
+      name: "Excel",
+      icon: "excel",
     },
     {
-      name: "Visual Studio Code",
-      icon: "vscode",
+      name: "Microsoft Fabric",
+      icon: "fabric",
+    },
+    {
+      name : "Power Apps",
+      icon : "power-apps",
+    },
+    {
+      name: "Power Automate",
+      icon: "power-automate",
+    }
+  ],
+  visualization: [
+    {
+      name: "Matplotlib",
+      icon: "matplotlib",
+    },
+    {
+      name: "Power BI",
+      icon: "power-bi",
+    },
+  ],
+  machineLearning: [
+    {
+      name: "XGBoost",
+      icon: "XGBoost",
+    },
+    {
+      name: "Scikit-learn",
+      icon: "scikit-learn",
+    },
+    {
+      name: "Spacy",
+      icon: "spacy",
+    },
+    {
+      name: "Text Blob",
+      icon: "textblob",
     }
   ],
 };

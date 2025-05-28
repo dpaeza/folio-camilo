@@ -69,14 +69,14 @@ const AboutSection = () => {
           willChange ? "will-change-opacity" : ""
         }`}
       >
-        I’m a Full Stack Developer who connects frontend and backend seamlessly.{" "}
+        I’m a Data Scientist who bridges data and decision-making by turning complex information into clear business value.{" "}
       </span>
       <span
         className={`about-2 leading-tight ${
           willChange ? "will-change-opacity" : ""
         }`}
       >
-        I focus on building efficient, user-centered apps with modern web technologies.
+        I focus on building efficient, data-driven solutions with modern analytics, machine learning, and visualization tools.
       </span>
     </h1>
   );
