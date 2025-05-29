@@ -60,7 +60,7 @@ export interface IProject {
 
 export const PROJECTS: IProject[] = [
   {
-    name: "Power BI dashboard for real-time control of the sales area",
+    name: "Power BI Dashboard for real-time monitoring of commercial companies",
     image: "/projects/tactica.webp",
     blurImage: "/projects/blur/tactica.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
@@ -69,7 +69,7 @@ export const PROJECTS: IProject[] = [
     tech: ["power-bi", "qlik-sense", "qlik", "vs-code" ],
   },
   {
-    name: "Power BI dashboard for real-time control of the sales area",
+    name: "Power BI Dashboard for real-time monitoring of commercial companies",
     image: "/projects/tactica2.webp",
     blurImage: "/projects/blur/tactica2.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
@@ -78,7 +78,7 @@ export const PROJECTS: IProject[] = [
     tech: ["power-bi", "qlik-sense", "qlik", "vs-code" ],
   },
   {
-    name: "Power BI dashboard for real-time control of the sales area",
+    name: "Power BI Dashboard for real-time monitoring of commercial companies",
     image: "/projects/tactica3.webp",
     blurImage: "/projects/blur/tactica3.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
@@ -87,7 +87,7 @@ export const PROJECTS: IProject[] = [
     tech: ["power-bi", "vs-code", "qlik", "qlik-sense" ],
   },
   {
-    name: "Power BI dashboard for real-time control of the sales area",
+    name: "Power BI Dashboard for real-time monitoring of commercial companies",
     image: "/projects/tactica4.webp",
     blurImage: "/projects/blur/tactica4.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
@@ -96,7 +96,7 @@ export const PROJECTS: IProject[] = [
     tech: ["power-bi", "vs-code", "qlik", "qlik-sense" ],
   },
   {
-    name: "Power BI dashboard for real-time control of the sales area",
+    name: "Power BI Dashboard for real-time monitoring of commercial companies",
     image: "/projects/tactica5.webp",
     blurImage: "/projects/blur/tactica5.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
