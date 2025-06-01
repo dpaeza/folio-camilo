@@ -80,7 +80,7 @@ const SkillsSection = () => {
   );
 
   const renderSkillColumn = (
-    title: string,
+    title: React.ReactNode,
     skills: { name: string; icon: string }[]
   ): React.ReactNode => (
     <>
@@ -118,7 +118,15 @@ const SkillsSection = () => {
         <div className="flex flex-col skills-wrapper">
           {renderSectionTitle()}
           <div className="mt-10">
-            {renderSkillColumn("LANGUAGES, LIBRARIES, AND TOOLS FOR EXPLORATORY DATA ANALYSIS (EDA) AND EXTRACTION, TRANSFORMATION, AND LOADING (ETL) PROCESSES", SKILLS.languajes)}
+            {renderSkillColumn(
+              <>
+                <span className="text-white/80">LANGUAGES, LIBRARIES, AND TOOLS FOR </span>
+                <span className="bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-500 bg-clip-text text-transparent font-extrabold drop-shadow-md">
+                  EXPLORATORY DATA ANALYSIS (EDA) AND EXTRACTION, TRANSFORMATION, AND LOADING (ETL) PROCESSES
+                </span>
+              </>,
+              SKILLS.languajes
+            )}
           </div>
           <div className="flex flex-wrap mt-10">
             <div className="mr-6 mb-6">
