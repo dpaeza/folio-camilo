@@ -40,22 +40,24 @@ const ProjectTile = ({
   const renderTechIcons = (techStack: string[]): React.ReactNode => (
     <div
       className={`
-      ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
-    `}
+        ${styles.techIcons} w-1/2 absolute left-1 top-[42%] -translate-y-1/2 hidden
+        sm:flex flex-wrap gap-x-6 gap-y-4 justify-center items-center
+      `}
     >
-      <div className="flex flex-col pb-8">
-        {techStack.map((tech, i) => (
-          <div className={`${i % 2 === 0 && "ml-16"} mb-4`} key={tech}>
-            <Image
-              src={`/projects/tech/${tech}.svg`}
-              alt={tech}
-              height={45}
-              objectFit="contain"
-              width={45}
-            />
-          </div>
-        ))}
-      </div>
+      {techStack.map((tech) => (
+        <div
+          className="w-1/4 flex justify-center items-center"
+          key={tech}
+        >
+          <Image
+            src={`/projects/tech/${tech}.svg`}
+            alt={tech}
+            height={45}
+            width={45}
+            objectFit="contain"
+          />
+        </div>
+      ))}
     </div>
   );
 

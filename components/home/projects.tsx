@@ -137,10 +137,10 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
   );
 
   const renderProjectTiles = (): React.ReactNode =>
-    PROJECTS.map((project) => (
+    PROJECTS.map((project, index) => (
       <ProjectTile
         project={project}
-        key={project.name}
+        key={index}
         animationEnabled={horizontalAnimationEnabled}
       ></ProjectTile>
     ));
