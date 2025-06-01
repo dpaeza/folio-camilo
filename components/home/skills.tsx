@@ -135,6 +135,7 @@ const SkillsSection = () => {
                 SKILLS.visualization
               )}
             </div>
+            <hr className="my-6 h-24 w-px bg-white/20 mx-auto lg:block 2xl:hidden sm:hidden md:hidden" />
             <div>{renderSkillColumn("MACHINE LEARNING, NATURAL LANGUAGE PROCESSING (NLP), SENTIMENT ANALYSIS, AND NEURAL NETWORKS", SKILLS.machineLearning)}</div>
           </div>
         </div>
