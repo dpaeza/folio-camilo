@@ -426,7 +426,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
   },
   {
     type: NodeTypes.CHECKPOINT,
-    title: "Gradiated ad a Mechanical Engineer 🎓",
+    title: "Graduated as a Mechanical Engineer 🎓",
     size: ItemSize.SMALL,
     subtitle: "Earned my Bachelor's degree in Mechanical Engineering from Universidad del Norte.",
     image: "/timeline/logo-uninorte.png",
