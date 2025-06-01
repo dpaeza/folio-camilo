@@ -6,16 +6,21 @@
 
 import styles from "./ProjectTile.module.scss";
 import Image from "next/image";
-import React, { MutableRefObject, useEffect, useRef } from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
 import { IProject } from "../../constants";
+import Modal from "./modal";
 
 const ProjectTile = ({
   project,
   animationEnabled,
+  onOpenModal,
+  onCloseModal,
 }: {
   project: IProject;
   animationEnabled: boolean;
+  onOpenModal: () => void;
+  onCloseModal: () => void;
 }) => {
   const projectCard: MutableRefObject<HTMLDivElement> = useRef(null);
   const {
@@ -27,6 +32,12 @@ const ProjectTile = ({
     gradient: [stop1, stop2],
   } = project;
 
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+
+  const isLink = Boolean(project.url);
+
+  const Wrapper = isLink ? "a" : "div";
+
   useEffect(() => {
     VanillaTilt.init(projectCard.current, {
       max: 5,
@@ -36,6 +47,19 @@ const ProjectTile = ({
       gyroscope: false,
     });
   }, [projectCard]);
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (!project.url) {
+      e.preventDefault();
+      setIsCarouselOpen(true);
+      onOpenModal();
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsCarouselOpen(false);
+    onCloseModal();  // avisar que cerramos modal
+  };
 
   const renderTechIcons = (techStack: string[]): React.ReactNode => (
     <div
@@ -112,42 +136,59 @@ const ProjectTile = ({
   );
 
   return (
-    <a
-      href={project.url}
-      target="_blank"
-      rel="noreferrer"
-      className="link overflow-hidden rounded-3xl snap-start"
-      style={{
-        maxWidth: animationEnabled
-          ? "calc(100vw - 2rem)"
-          : "calc(100vw - 4rem)",
-        flex: "1 0 auto",
-        WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-      }}
-    >
-      <div
-        ref={projectCard}
-        className={`
-          ${styles.ProjectTile}
-           rounded-3xl relative p-6 flex-col flex justify-between max-w-full
-        `}
-        style={{
-          background: `linear-gradient(90deg, ${stop1} 0%, ${stop2} 100%)`,
-        }}
+
+    <>
+      <Wrapper 
+        {...(isLink 
+          ? { 
+              href: project.url, 
+              target: "_blank", 
+              rel: "noreferrer" 
+            } 
+          : {})}
+        onClick={handleClick}
+        className="link overflow-hidden rounded-3xl snap-start"
+          style={{
+            maxWidth: animationEnabled
+              ? "calc(100vw - 2rem)"
+              : "calc(100vw - 4rem)",
+            flex: "1 0 auto",
+            WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+          }}
       >
-        <Image
-          src="/project-bg.svg"
-          alt="Project"
-          layout="fill"
-          className="absolute w-full h-full top-0 left-0 opacity-20"
+
+        <div
+          ref={projectCard}
+          className={`
+            ${styles.ProjectTile}
+            rounded-3xl relative p-6 flex-col flex justify-between max-w-full
+          `}
+          style={{
+            background: `linear-gradient(90deg, ${stop1} 0%, ${stop2} 100%)`,
+          }}
+        >
+          <Image
+            src="/project-bg.svg"
+            alt="Project"
+            layout="fill"
+            className="absolute w-full h-full top-0 left-0 opacity-20"
+          />
+          {renderProjectImage(image, blurImage, name)}
+          {renderTopBottomGradient(stop1)}
+          {renderProjectName(name)}
+          {renderTechIcons(tech)}
+          {renderDescription(description)}
+        </div>
+      </Wrapper>
+
+      {/* Modal con carrusel si no hay URL */}
+      {!isLink && isCarouselOpen && (
+        <Modal
+          onClose={handleCloseModal}
+          images={project.images ?? [image]}
         />
-        {renderProjectImage(image, blurImage, name)}
-        {renderTopBottomGradient(stop1)}
-        {renderProjectName(name)}
-        {renderTechIcons(tech)}
-        {renderDescription(description)}
-      </div>
-    </a>
+      )}
+    </>
   );
 };
 

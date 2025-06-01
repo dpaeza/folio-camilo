@@ -54,7 +54,8 @@ export interface IProject {
   blurImage: string;
   description: string;
   gradient: [string, string];
-  url: string;
+  url?: string;
+  images?: string[];
   tech: string[];
 }
 
@@ -65,7 +66,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/tactica.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
     gradient: ["#1b5ca8", "#0e3c6a"],
-    url: "https://carato-frontend-dh.vercel.app/",
+    images: ["/projects/carrousel/tactica-1.1.webp", "/projects/carrousel/tactica-1.2.webp"],
     tech: ["power-bi", "qlik-sense", "qlik", "vs-code" ],
   },
   {
@@ -74,7 +75,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/tactica2.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
     gradient: ["#dc2915", "#6b1007"],
-    url: "https://carato-frontend-dh.vercel.app/",
+    images: ["/projects/carrousel/tactica-2.1.webp", "/projects/carrousel/tactica-2.2.webp", "/projects/carrousel/tactica-2.3.webp"],
     tech: ["power-bi", "qlik-sense", "qlik", "vs-code" ],
   },
   {
@@ -83,7 +84,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/tactica3.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
     gradient: ["#69ce01", "#467c9c"],
-    url: "https://carato-frontend-dh.vercel.app/",
+    images: ["/projects/carrousel/tactica-3.1.webp"],
     tech: ["power-bi", "vs-code", "qlik", "qlik-sense" ],
   },
   {
@@ -92,7 +93,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/tactica4.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
     gradient: ["#f0ac1e", "#a76f00"],
-    url: "https://carato-frontend-dh.vercel.app/",
+    images: ["/projects/carrousel/tactica-4.1.webp"],
     tech: ["power-bi", "vs-code", "qlik", "qlik-sense" ],
   },
   {
@@ -101,7 +102,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/tactica5.webp",
     description: "Using Power BI to track multiple clients in areas such as sales, pricing, coverage, out-of-stocks, competitive analysis, availability, and productivity.",
     gradient: ["#28759f", "#1b4f6a"],
-    url: "https://carato-frontend-dh.vercel.app/",
+    images: ["/projects/carrousel/tactica-5.1.webp", "/projects/carrousel/tactica-5.2.webp", "/projects/carrousel/tactica-5.3.webp"],
     tech: ["power-bi", "vs-code", "qlik", "qlik-sense" ],
   },
   {
@@ -110,7 +111,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/FSCR.webp",
     description: "Using Power BI to track work performed by field staff",
     gradient: ["#ea76e5", "#972f91"],
-    url: "https://www.subaru.com.ar/",
+    images: ["/projects/carrousel/FSCR-1.1.webp", "/projects/carrousel/FSCR-1.2.webp"],
     tech: ["power-bi", "power-query", "sharepoint"],
   },
   {
@@ -119,7 +120,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/FSCR-human.webp",
     description: "Power BI dashboard for real-time tracking of hiring, available positions, and turnover rates by area and region",
     gradient: ["#504e5c", "#2e2c36"],
-    url: "https://www.subaru.com.ar/",
+    images: ["/projects/carrousel/FSCR-2.1.webp"],
     tech: ["power-bi", "power-query", "sharepoint", "power-apps", "excel"],
   },
   {
@@ -128,7 +129,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/FSCR-tigo.webp",
     description: "Power BI application for controlling payroll and other billing processes for a telecommunications company",
     gradient: ["#0c477f", "#062e52"],
-    url: "https://www.subaru.com.ar/",
+    images: ["/projects/carrousel/FSCR-3.1.webp", "/projects/carrousel/FSCR-3.2.webp", "/projects/carrousel/FSCR-3.3.webp"],
     tech: ["power-bi", "power-query", "sharepoint", "excel"],
   },
   {
@@ -137,7 +138,7 @@ export const PROJECTS: IProject[] = [
     blurImage: "/projects/blur/FSCR-vehicle.webp",
     description: "Using Power BI to track vehicle and operational inspections for use by fleet supervisor engineers",
     gradient: ["#6c8299", "#455565"],
-    url: "https://www.subaru.com.ar/",
+    images: ["/projects/carrousel/FSCR-4.1.webp", "/projects/carrousel/FSCR-4.2.webp", "/projects/carrousel/FSCR-4.3.webp", "/projects/carrousel/FSCR-4.4.webp", "/projects/carrousel/FSCR-4.5.webp"],
     tech: ["power-bi", "power-query", "sharepoint", "power-apps"],
   },
   {

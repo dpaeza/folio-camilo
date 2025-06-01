@@ -22,6 +22,8 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
   const targetSectionRef: MutableRefObject<HTMLDivElement> = useRef(null);
   const sectionTitleElementRef: MutableRefObject<HTMLDivElement> = useRef(null);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [willChange, setwillChange] = useState(false);
   const [horizontalAnimationEnabled, sethorizontalAnimationEnabled] =
     useState(false);
@@ -136,12 +138,37 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
     </div>
   );
 
+  useEffect(() => {
+    if (!horizontalAnimationEnabled) return;
+
+    if (isModalOpen) {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.disable(false)); // Pausa
+    } else {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.enable(false)); // Reanuda
+    }
+  }, [isModalOpen, horizontalAnimationEnabled]);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden'; // Desactiva scroll vertical
+    } else {
+      document.body.style.overflow = ''; // Reactiva scroll
+    }
+
+    return () => {
+      // Por si acaso el componente se desmonta con el modal abierto
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
+
   const renderProjectTiles = (): React.ReactNode =>
     PROJECTS.map((project, index) => (
       <ProjectTile
         project={project}
         key={index}
         animationEnabled={horizontalAnimationEnabled}
+        onOpenModal={() => setIsModalOpen(true)}
+        onCloseModal={() => setIsModalOpen(false)}
       ></ProjectTile>
     ));
 
