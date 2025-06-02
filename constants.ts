@@ -157,7 +157,7 @@ export const PROJECTS: IProject[] = [
     description: "Using Python and Natural Language Processing (NLP) techniques alongside Deep Learning models to analyze financial news, predict stock market trends, and detect misleading information",
     gradient: ["#c13838", "#891d1d"],
     url: "https://github.com/clyonsv/Data-Science-3-Camilo-Lyons/blob/8b0b9c3f5063a27f379e92c733714edad5401377/Data%20Science%203%20NLP_Camilo%20Lyons.ipynb",
-    tech: ["python", "jupyter", "pandas", "spacy", "scikit-learn", "matplotlib", "seaborn", "textblob"],
+    tech: ["python", "jupyter", "Pandas", "spacy", "scikit-learn", "matplotlib", "seaborn", "textblob"],
   },
   {
     name: "Strategic dashboard on Power BI: Formula 1 - drivers and Grand Prix insights",
@@ -175,7 +175,7 @@ export const PROJECTS: IProject[] = [
     description: "Execution, optimization, and selection of Machine Learning models focused on binary classification in the healthcare field",
     gradient: ["#b40426", "#6c0217"],
     url: "https://github.com/clyonsv/Data.science-Camilo.Lyons/blob/bd7e4591e23c09142d75c4cd0d648ad4aa2a2779/2da%20Entrega_Dementia_Dataset%2BCamilo_Lyons.ipynb",
-    tech: ["python", "jupyter", "pandas", "numpy", "seaborn", "statsmodels", "scikit-learn", "matplotlib", "XGBoost"],
+    tech: ["python", "jupyter", "Pandas", "numpy", "seaborn", "statsmodels", "scikit-learn", "matplotlib", "XGBoost"],
   },
 ];
 
