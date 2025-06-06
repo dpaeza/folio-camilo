@@ -10,6 +10,7 @@ import ProjectTile from "../common/project-tile";
 import { gsap, Linear } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { IDesktop, NO_MOTION_PREFERENCE_QUERY } from "pages";
+import { useModal } from "context/ModalContext";
 
 const PROJECT_STYLES = {
   SECTION:
@@ -22,7 +23,7 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
   const targetSectionRef: MutableRefObject<HTMLDivElement> = useRef(null);
   const sectionTitleElementRef: MutableRefObject<HTMLDivElement> = useRef(null);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isOpen } = useModal();
 
   const [willChange, setwillChange] = useState(false);
   const [horizontalAnimationEnabled, sethorizontalAnimationEnabled] =
@@ -141,25 +142,12 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
   useEffect(() => {
     if (!horizontalAnimationEnabled) return;
 
-    if (isModalOpen) {
+    if (isOpen) {
       ScrollTrigger.getAll().forEach((trigger) => trigger.disable(false)); // Pausa
     } else {
       ScrollTrigger.getAll().forEach((trigger) => trigger.enable(false)); // Reanuda
     }
-  }, [isModalOpen, horizontalAnimationEnabled]);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden'; // Desactiva scroll vertical
-    } else {
-      document.body.style.overflow = ''; // Reactiva scroll
-    }
-
-    return () => {
-      // Por si acaso el componente se desmonta con el modal abierto
-      document.body.style.overflow = '';
-    };
-  }, [isModalOpen]);
+  }, [isOpen, horizontalAnimationEnabled]);
 
   const renderProjectTiles = (): React.ReactNode =>
     PROJECTS.map((project, index) => (
@@ -167,8 +155,6 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
         project={project}
         key={index}
         animationEnabled={horizontalAnimationEnabled}
-        onOpenModal={() => setIsModalOpen(true)}
-        onCloseModal={() => setIsModalOpen(false)}
       ></ProjectTile>
     ));
 

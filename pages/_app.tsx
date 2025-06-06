@@ -6,9 +6,14 @@
 
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
+import { ModalProvider } from "context/ModalContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <ModalProvider>
+      <Component {...pageProps} />
+    </ModalProvider>
+  );
 }
 
 export default MyApp;

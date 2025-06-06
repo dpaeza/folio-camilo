@@ -24,6 +24,8 @@ import Footer from "@/components/common/footer";
 import TimelineSection from "@/components/home/timeline";
 import Scripts from "@/components/common/scripts";
 import AboutSection from "@/components/home/about";
+import { useModal } from "context/ModalContext";
+import Modal from "@/components/common/modal";
 
 const DEBOUNCE_TIME = 100;
 
@@ -68,6 +70,8 @@ export default function Home() {
     <div className="fixed top-0 left-0 h-screen w-screen bg-gray-900 -z-1"></div>
   );
 
+  const { isOpen, images, closeModal } = useModal();
+
   return (
     <>
       <Head>
@@ -88,6 +92,7 @@ export default function Home() {
           <CollaborationSection />
           <Footer />
         </main>
+        {isOpen && <Modal onClose={closeModal} images={images} />}
         <Scripts />
       </Layout>
     </>

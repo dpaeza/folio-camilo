@@ -9,18 +9,14 @@ import Image from "next/image";
 import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
 import { IProject } from "../../constants";
-import Modal from "./modal";
+import { useModal } from "context/ModalContext";
 
 const ProjectTile = ({
   project,
-  animationEnabled,
-  onOpenModal,
-  onCloseModal,
+  animationEnabled
 }: {
   project: IProject;
   animationEnabled: boolean;
-  onOpenModal: () => void;
-  onCloseModal: () => void;
 }) => {
   const projectCard: MutableRefObject<HTMLDivElement> = useRef(null);
   const {
@@ -32,7 +28,7 @@ const ProjectTile = ({
     gradient: [stop1, stop2],
   } = project;
 
-  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+  const { openModal } = useModal();
 
   const isLink = Boolean(project.url);
 
@@ -51,14 +47,8 @@ const ProjectTile = ({
   const handleClick = (e: React.MouseEvent) => {
     if (!project.url) {
       e.preventDefault();
-      setIsCarouselOpen(true);
-      onOpenModal();
+      openModal(project.images ?? [project.image]);
     }
-  };
-
-  const handleCloseModal = () => {
-    setIsCarouselOpen(false);
-    onCloseModal();  // avisar que cerramos modal
   };
 
   const renderTechIcons = (techStack: string[]): React.ReactNode => (
@@ -180,14 +170,6 @@ const ProjectTile = ({
           {renderDescription(description)}
         </div>
       </Wrapper>
-
-      {/* Modal con carrusel si no hay URL */}
-      {!isLink && isCarouselOpen && (
-        <Modal
-          onClose={handleCloseModal}
-          images={project.images ?? [image]}
-        />
-      )}
     </>
   );
 };
