@@ -22,7 +22,7 @@ import { IDesktop, isSmallScreen } from "pages";
 
 const svgColor = "#9CA3AF";
 const animColor = "#FCD34D";
-const separation = 450;
+const separation = 850;
 const strokeWidth = 2;
 const leftBranchX = 13;
 const curveLength = 150;
