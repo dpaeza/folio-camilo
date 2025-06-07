@@ -33,10 +33,10 @@ const Modal = ({
     }, []);
 
     return (
-        <div className="fixed top-0 right-0 inset-0 z-20 h-screen w-screen bg-black bg-opacity-80 flex items-center justify-center backdrop-blur-sm animate-fade-in">
+        <div className="fixed top-0 right-0 inset-0 z-50 h-screen w-screen bg-[#111827]/80 flex items-center justify-center backdrop-blur-sm animate-fade-in">
             <div
                 ref={modalRef}
-                className="relative w-full max-w-4xl bg-white rounded-xl shadow-xl overflow-hidden animate-zoom-in"
+                className="relative w-full max-w-4xl bg-[#1f2937] py-2 rounded-xl shadow-xl overflow-hidden animate-zoom-in"
             >
                 {/* Botón de cerrar */}
                 <button
@@ -59,14 +59,17 @@ const Modal = ({
                 >
                     {images.map((img, idx) => (
                         <SplideSlide key={idx}>
-                            <div className="relative w-full h-[500px]">
-                                <Image
-                                    src={img}
-                                    alt={`project-image-${idx}`}
-                                    layout="fill"
-                                    objectFit="contain"
-                                    className="rounded-xl"
-                                />
+                            <div className="relative w-full max-h-[80vh] overflow-y-auto">
+                                <div className="flex items-center justify-center h-full p-4">
+                                    <Image
+                                        src={img}
+                                        alt="imagen"
+                                        width={1000}
+                                        height={1200}
+                                        objectFit="contain"
+                                        className="rounded-xl block"
+                                    />
+                                </div>
                             </div>
                         </SplideSlide>
                     ))}
