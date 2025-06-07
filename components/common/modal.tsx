@@ -41,7 +41,7 @@ const Modal = ({
                 {/* Botón de cerrar */}
                 <button
                     onClick={onClose}
-                    className="absolute top-3 right-3 text-3xl font-bold text-gray-700 hover:text-red-500 z-10"
+                    className="absolute top-3 right-5 text-3xl font-bold text-gray-400 hover:text-red-500 z-10"
                 >
                     ×
                 </button>
