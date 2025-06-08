@@ -66,8 +66,8 @@ const ProjectTile = ({
           <Image
             src={`/projects/tech/${tech}.svg`}
             alt={tech}
-            height={45}
-            width={45}
+            height={50}
+            width={50}
             objectFit="contain"
           />
         </div>
