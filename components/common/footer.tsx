@@ -70,6 +70,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="block px-4 py-2 text-white hover:text-white hover:bg-[#0e728c] transition-colors"
+                onClick={() => setShowDropdown(false)}
               >
                 English
               </a>
@@ -78,6 +79,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="block px-4 py-2 text-white hover:text-whitedani hover:bg-[#0e728c] transition-colors"
+                onClick={() => setShowDropdown(false)}
               >
                 Español
               </a>

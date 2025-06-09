@@ -129,6 +129,7 @@ const HeroSection = React.memo(() => {
                 target="_blank"
                 rel="noreferrer"
                 className="block px-4 py-2 text-white hover:text-black hover:bg-[#66cee7] transition-colors"
+                onClick={() => setShowDropdown(false)}
               >
                 English
               </a>
@@ -137,6 +138,7 @@ const HeroSection = React.memo(() => {
                 target="_blank"
                 rel="noreferrer"
                 className="block px-4 py-2 text-white hover:text-black hover:bg-[#66cee7] transition-colors"
+                onClick={() => setShowDropdown(false)}
               >
                 Español
               </a>
