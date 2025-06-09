@@ -8,7 +8,7 @@ export const METADATA = {
   title: "Camilo Lyons",
   description:
     "I'm a Data Scientist who bridges data and decision-making seamlessly. I focus on developing ETL processes, building predictive models, and delivering data-driven solutions through modern analytics, machine learning, and data visualization tools.",
-  siteUrl: "https://danielapaez.dev/",
+  siteUrl: "https://folio-camilo.vercel.app/",
 };
 
 export const MENULINKS = [
