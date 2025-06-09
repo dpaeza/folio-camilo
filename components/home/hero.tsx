@@ -5,7 +5,7 @@
 // License text available at https://opensource.org/licenses/MIT
 
 import { EMAIL, MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
-import React, { MutableRefObject, useEffect, useRef } from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import Image from "next/image";
 import { gsap, Linear } from "gsap";
@@ -25,6 +25,9 @@ const HERO_STYLES = {
 const HeroSection = React.memo(() => {
   const typedSpanElement: MutableRefObject<HTMLSpanElement> = useRef(null);
   const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const initTypeAnimation = (
     typedSpanElement: MutableRefObject<HTMLSpanElement>
@@ -60,6 +63,21 @@ const HeroSection = React.memo(() => {
     return typed.destroy;
   }, [typedSpanElement, targetSection]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent): void => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [])
+
   const renderBackgroundImage = (): React.ReactNode => (
     <div className={HERO_STYLES.BG_WRAPPER} style={{ maxHeight: "650px" }}>
       <HeroImage />
@@ -90,16 +108,43 @@ const HeroSection = React.memo(() => {
       </p>
       <div className="flex seq mb-5">{renderSocialLinks()}</div>
       <div className="flex seq">
-        <Button
-          classes="mr-3"
-          type={ButtonTypes.OUTLINE}
-          name="Resume"
-          otherProps={{
-            target: "_blank",
-            rel: "noreferrer",
-          }}
-          href="/Daniela_Paez_Resume.pdf"
-        ></Button>
+        {/* Dropdown Resume Button */}
+        <div className="relative" ref={dropdownRef}>
+          <Button
+            classes="mr-3"
+            type={ButtonTypes.OUTLINE}
+            name="Resume"
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div
+              className="absolute top-full left-0 mt-2 rounded shadow-md z-10 min-w-[150px]"
+              style={{
+                backgroundColor: "#111827",
+                border: "1px solid #2c2f3a",
+              }}
+            >
+              <a
+                href="/CV-Data_Scientist-Camilo_Lyons-EN.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="block px-4 py-2 text-white hover:text-black hover:bg-[#66cee7] transition-colors"
+              >
+                English
+              </a>
+              <a
+                href="/CV-Data_Scientist-Camilo_Lyons.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="block px-4 py-2 text-white hover:text-black hover:bg-[#66cee7] transition-colors"
+              >
+                Español
+              </a>
+            </div>
+          )}
+        </div>
+
+        {/* Let's Talk Button */}
         <Button
           classes="ml-3"
           type={ButtonTypes.PRIMARY}

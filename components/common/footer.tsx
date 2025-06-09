@@ -5,10 +5,14 @@
 // License text available at https://opensource.org/licenses/MIT
 
 import { EMAIL, MENULINKS, SOCIAL_LINKS } from "../../constants";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Button, { ButtonTypes } from "./button";
 
 const Footer = () => {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   const renderSocialIcons = (): React.ReactNode => {
     return Object.keys(SOCIAL_LINKS).map((el: keyof typeof SOCIAL_LINKS) => (
       <a
@@ -23,6 +27,21 @@ const Footer = () => {
     ));
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent): void => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const renderFooterContent = (): React.ReactNode => (
     <>
       <h1 className="font-medium text-3xl md:text-4xl text-center">
@@ -30,16 +49,41 @@ const Footer = () => {
       </h1>
       <div className="flex mt-8">{renderSocialIcons()}</div>
       <div className="flex mt-8">
-        <Button
-          classes="mr-3"
-          type={ButtonTypes.OUTLINE}
-          name="Resume"
-          otherProps={{
-            target: "_blank",
-            rel: "noreferrer",
-          }}
-          href="/Daniela_Paez_Resume.pdf"
-        ></Button>
+        {/* Dropdown Resume Button */}
+        <div className="relative" ref={dropdownRef}>
+          <Button
+            classes="mr-3"
+            type={ButtonTypes.OUTLINE}
+            name="Resume"
+            onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div
+              className="absolute top-full left-0 mt-2 rounded shadow-md z-10 min-w-[150px]"
+              style={{
+                backgroundColor: "#083f52",
+                border: "1px solid #0e728c",
+              }}
+            >
+              <a
+                href="/CV-Data_Scientist-Camilo_Lyons-EN.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="block px-4 py-2 text-white hover:text-white hover:bg-[#0e728c] transition-colors"
+              >
+                English
+              </a>
+              <a
+                href="/CV-Data_Scientist-Camilo_Lyons.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="block px-4 py-2 text-white hover:text-whitedani hover:bg-[#0e728c] transition-colors"
+              >
+                Español
+              </a>
+            </div>
+          )}
+        </div>
         <Button
           classes="ml-3"
           type={ButtonTypes.WHITE}
